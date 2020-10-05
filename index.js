@@ -8,13 +8,13 @@ app.get('/', function (req, res) {
 
 app.get('/config', function (req, res) {
     fs.readFile('/data/config.json', (err, data) => {
-        res.send(JSON.parse(data))
+        res.send(data)
     });
 });
 
 app.get('/pets', function (req, res) {
     fs.readFile('/data/pets.json', (err, data) => {
-        res.send(JSON.parse(data))
+        res.send(data)
     });
 });
 
