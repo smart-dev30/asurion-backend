@@ -1,21 +1,19 @@
 var express = require('express');
 var app = express();
-var fs = require('fs');
+
+const configJson = require('./data/config.json')
+const petsJson = require('./data/pets.json')
 
 app.get('/', function (req, res) {
     res.send("Asurion Test Backend")
 });
 
 app.get('/config', function (req, res) {
-    fs.readFile('/data/config.json', (err, data) => {
-        res.send(data.toString())
-    });
+    res.send(configJson)
 });
 
 app.get('/pets', function (req, res) {
-    fs.readFile('/data/pets.json', (err, data) => {
-        res.send(data.toString())
-    });
+    res.send(petsJson)
 });
 
 var server = app.listen(process.env.PORT ||3000, function () { });
